@@ -8,7 +8,12 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/books', function(req, res, next) {
-  res.render('books');
+  knex('authors')
+  .innerJoin('authors_books', 'authors.id', 'authors_books.authors_id')
+  .innerJoin('books', 'authors_books.authors_id', 'books.id')
+  .then(function(results) {
+    res.render('books', {title: "Yep", authors_and_books: results});
+  })
 });
 
 router.get('/books/new', function(req, res, next) {
@@ -20,7 +25,12 @@ router.get('/books/edit', function(req, res, next) {
 });
 
 router.get('/authors', function(req, res, next) {
-  res.render('authors');
+  knex('authors')
+  .innerJoin('authors_books', 'authors.id', 'authors_books.authors_id')
+  .innerJoin('books', 'authors_books.authors_id', 'books.id')
+  .then(function(results) {
+    res.render('books', {title: "Yep", authors_and_books: results});
+  })
 });
 
 router.get('/authors/new', function(req, res, next) {
@@ -30,5 +40,7 @@ router.get('/authors/new', function(req, res, next) {
 router.get('/authors/edit', function(req, res, next) {
   res.render('edit_author');
 });
+
+
 
 module.exports = router;
