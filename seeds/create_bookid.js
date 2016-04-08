@@ -1,20 +1,14 @@
 exports.seed = function(knex, Promise) {
   return Promise.join(
-    knex('book_author').insert({
-      book_id: 1, author_id: 1}),
-    knex('book_author').insert({
-      book_id: 1, author_id: 2}),
-    knex('book_author').insert({
-      book_id: 1, author_id: 3}),
-    knex('book_author').insert({
-      book_id: 2, author_id: 4}),
-    knex('book_author').insert({
-      book_id: 3, author_id: 5}),
-    knex('book_author').insert({
-      book_id: 4, author_id: 6}),
-    knex('book_author').insert({
-      book_id: 5, author_id: 6}),
-    knex('book_author').insert({
-      book_id: 6, author_id: 6})
+    knex('authors_books').del(),
+
+    knex('authors_books').insert({authors_id: 1, books_id: 1}),
+    knex('authors_books').insert({authors_id: 2, books_id: 1}),
+    knex('authors_books').insert({authors_id: 3, books_id: 1}),
+    knex('authors_books').insert({authors_id: 4, books_id: 2}),
+    knex('authors_books').insert({authors_id: 5, books_id: 3}),
+    knex('authors_books').insert({authors_id: 6, books_id: 4}),
+    knex('authors_books').insert({authors_id: 6, books_id: 5}),
+    knex('authors_books').insert({authors_id: 6, books_id: 6})
   );
 };

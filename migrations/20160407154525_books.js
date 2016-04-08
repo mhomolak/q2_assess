@@ -1,34 +1,25 @@
-
 exports.up = function(knex, Promise) {
-  return knex.schema.createTable('books', function(table) {
+  return knex.schema.createTable('books', function(table){
+      table.increments();
+      table.string("title");
+      table.string("genre");
+      table.string("cover_image_url");
+      table.text("description");
+  })
+  .createTable('authors', function(table){
     table.increments();
-    table.integer('book_id');
-    table.integer('author_id');
-    table.string('book_title');
-    table.string('book_genre');
-    table.text('book_description');
-    table.string('book_cover_url');
-
-    table.integer('')
-
+    table.string("first_name");
+    table.string("last_name");
+    table.string("portrait_url");
+    table.text("biography");
   })
-  .createTable('authors', function(table) {
-    table.increments('author_id');
-    table.string('author_first_name');
-    table.string('author_last_name');
-    table.text('author_bio');
-    table.string('author_pic_url');
-
-    table.integer('book_id').unsigned().references('book_id').inTable('books');
-  })
-  .createTable('book_author', function(table) {
-    table.increments();
-    table.integer('book_id');
-    table.integer('author_id');
-  })
-
+  .createTable('authors_books', function(table){
+    table.integer('authors_id').unsigned().references('authors.id').onDelete('CASCADE').onUpdate('CASCADE').index();
+    table.integer('books_id').unsigned().references('books.id').onDelete('CASCADE').onUpdate('CASCADE').index();
+  });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('authors').dropTable('books').dropTable('book_author');
+  return knex.schema.dropTable('books').dropTable('authors').dropTable('authors_books');
+
 };

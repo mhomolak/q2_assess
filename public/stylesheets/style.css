@@ -22,3 +22,8 @@ h1 {
   max-width: 40%;
   max-height: 80%;
 }
+
+.links {
+  text-align: right;
+  margin: 0 auto;
+}
