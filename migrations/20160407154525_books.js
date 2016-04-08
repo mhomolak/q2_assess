@@ -14,12 +14,13 @@ exports.up = function(knex, Promise) {
     table.text("biography");
   })
   .createTable('authors_books', function(table){
-    table.integer('authors_id').unsigned().references('authors.id').onDelete('CASCADE').onUpdate('CASCADE').index();
-    table.integer('books_id').unsigned().references('books.id').onDelete('CASCADE').onUpdate('CASCADE').index();
+    table.integer('authors_id').references('authors.id').onDelete('CASCADE').onUpdate('CASCADE');
+    table.integer('books_id').references('books.id').onDelete('CASCADE').onUpdate('CASCADE');
   });
 };
 
 exports.down = function(knex, Promise) {
-  return knex.schema.dropTable('books').dropTable('authors').dropTable('authors_books');
-
+  return knex.schema.dropTable('books')
+                    .dropTable('authors')
+                    .dropTable('authors_books');
 };
