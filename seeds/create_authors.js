@@ -12,7 +12,7 @@ exports.seed = function(knex, Promise) {
       author_pic_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/anna_ravenscroft.jpg'}),
     knex('authors').insert({
       author_id: 3, author_first_name: 'Steve', author_last_name: 'Holden',
-      author_bio: "Steve Holden Is a consultant, advising clients on system and network architectures and the design and implementation of programmed web systems. He also teaches classes on TCP/IP, network security, database and programming topics, and is the author of ""Python Web Programming"", the O'Reilly School of Technology's ""Certificate series in Python"" and O'Reilly Media's ""Intermediate Python"" video series.",
+      author_bio: "Steve Holden Is a consultant, advising clients on system and network architectures and the design and implementation of programmed web systems. He also teaches classes on TCP/IP, network security, database and programming topics, and is the author of Python Web Programming, the O'Reilly School of Technology's 'Certificate series in Python' and O'Reilly Media's 'Intermediate Python' video series.",
       author_pic_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/steve_holden.jpg'}),
     knex('authors').insert({
       author_id: 4, author_first_name: 'Allen', author_last_name: 'Downey',
@@ -25,6 +25,6 @@ exports.seed = function(knex, Promise) {
     knex('authors').insert({
       author_id: 6, author_first_name: 'Kyle', author_last_name: 'Simpson',
       author_bio: "Kyle Simpson is an Open Web Evangelist who's passionate about all things JavaScript. He's an author, workshop trainer, tech speaker, and OSS contributor/leader.",
-      author_pic_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/kyle_simpson.jpg'}),
+      author_pic_url: 'https://s3-us-west-2.amazonaws.com/assessment-images/galvanize_reads/photos/kyle_simpson.jpg'})
   );
 };
