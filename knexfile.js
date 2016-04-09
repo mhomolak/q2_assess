@@ -7,7 +7,7 @@ module.exports = {
       min: 2,
       max: 10
     }
-  }
+  },
 
   production: {
     client: 'postgresql',
