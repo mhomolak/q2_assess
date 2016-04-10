@@ -29,7 +29,7 @@ router.get('/authors', function(req, res, next) {
   .innerJoin('authors_books', 'authors.id', 'authors_books.authors_id')
   .innerJoin('books', 'authors_books.authors_id', 'books.id')
   .then(function(results) {
-    res.render('books', {title: "Yep", authors_and_books: results});
+    res.render('authors', {title: "Yep", authors: results});
   })
 });
 
